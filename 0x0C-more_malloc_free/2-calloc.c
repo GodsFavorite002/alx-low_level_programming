@@ -3,48 +3,29 @@
 #include <stdlib.h>
 
 /**
- * _calloc - function that allocates memory for an array, using malloc
- * @nmemb: size of the memory space to allocate in bytes
- * @size: size of type
- * Return: void pointer
+ * _calloc - function that allocates memory for an array
+ * @nmemb: first parameter
+ * @size: second parameter
+ *
+ * Description: function that allocates memory for an array
+ * Return: Always(0) Success
  */
-
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *ptr;
+char *memory;
+unsigned int b;
 
-	if (nmemb == 0 || size == 0)
-		return (NULL);
+if (nmemb == 0 || size == 0)
+return (NULL);
 
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-	{
-		return (NULL);
-	}
-	_memset(ptr, 0, size * nmemb);
-	return (ptr);
-}
+memory = malloc(nmemb * size);
 
-/**
- * _memset - function that fills memory with a constant byte
- *
- * @s: parameter defined in main, pointer to memory area
- * @b: parameter defined in main, constant byte
- * @n: parameter defined in main, number of bytes to be filled
- *
- * Return: memory address of function (memory area)
- */
+if (memory == NULL)
+return (NULL);
 
-char *_memset(char *s, char b, unsigned int n)
+for (b = 0; b < (nmemb * size); b++)
 {
-	unsigned int i;
-	char *tmp = s;
-
-	for (i = 0; i < n; i++)
-	{
-		*s = b;
-		s++;
-	}
-	s = tmp;
-	return (s);
+*(memory + b) = 0;
+}
+return (memory);
 }
