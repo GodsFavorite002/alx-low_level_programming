@@ -1,1 +1,1 @@
-C IS FUN
+C IS COOL
